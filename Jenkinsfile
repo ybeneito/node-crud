@@ -45,6 +45,22 @@ pipeline{
                 }
             }
         }
+        stage("git") {
+            steps {
+                sh "git checkout tested"
+                sh "git merge master"
+                sh "git push origin tested"
+            }
+            post{
+                success{
+                    echo "====++++git successful++++===="
+                }
+                failure{
+                    echo "====++++git failed++++===="
+                }
+            }
+        }
+
     }
     post{
         success{
