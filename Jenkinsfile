@@ -7,7 +7,7 @@ pipeline{
         stage('Cloning git && npm install') {
             steps {
                 git(
-                    url: 'https://ybeneito:Yohan051186@github.com/ybeneito/node-crud.git',
+                    url: 'https://ybeneito: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@github.com/ybeneito/node-crud.git',
                     credentialsId: 'git-creds'
                 ) 
                 sh 'npm install'
