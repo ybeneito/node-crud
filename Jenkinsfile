@@ -6,7 +6,10 @@ pipeline{
 
         stage('Cloning git && npm install') {
             steps {
-                git url: 'https://github.com/ybeneito/node-crud.git'
+                git(
+                    url: 'https://github.com/ybeneito/node-crud.git',
+                    credentialsId: 'git-creds'
+                ) 
                 sh 'npm install'
             }
             post{
@@ -47,11 +50,9 @@ pipeline{
         }
         stage("git") {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'git-creds', passwordVariable: 'pass', usernameVariable: 'user')]) {
-                    sh "git checkout tested"
-                    sh "git merge master"
-                    sh "git push origin tested"
-                }
+                sh "git checkout tested"
+                sh "git merge master"
+                sh "git push origin tested"
             }
             post{
                 success{
