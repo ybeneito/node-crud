@@ -52,7 +52,7 @@ pipeline{
             steps {
                 sh "git checkout tested"
                 sh "git merge master"
-                sh "git push origin tested"
+                sh "git push"
             }
             post{
                 success{
