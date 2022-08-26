@@ -47,9 +47,11 @@ pipeline{
         }
         stage("git") {
             steps {
-                sh "git checkout tested"
-                sh "git merge master"
-                sh "git push origin tested"
+                withCredentials([usernamePassword(credentialsId: 'git-creds', passwordVariable: 'pass', usernameVariable: 'user')]) {
+                    sh "git checkout tested"
+                    sh "git merge master"
+                    sh "git push origin tested"
+                }
             }
             post{
                 success{
