@@ -56,7 +56,7 @@ pipeline{
             }
             post{
                 success{
-                    echo "====++++git successful++++===="
+                    echo "====++++git successful  ++++===="
                 }
                 failure{
                     echo "====++++git failed++++===="
