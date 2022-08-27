@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-crud-deployment
+  labels:
+    app: node-crud
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-crud
+  template:
+    metadata:
+      labels:
+        app: node-crud 
+    spec:
+      containers:
+      - name: nodeserver
+        image: ybeneito/node-crud:latest
+        ports:
+        - containerPort: 3000

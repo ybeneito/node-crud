@@ -24,6 +24,6 @@ app.post('/articles', (req,res) => {
 */
 
 
-app.listen(8081, () => console.log('8080 on ...'))
+app.listen(3000, () => console.log('3000 on ...'))
 
 export default app;
